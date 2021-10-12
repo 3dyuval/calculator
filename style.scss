@@ -1,0 +1,174 @@
+*,
+*:after {
+  padding: 0;
+  margin: 0;
+}
+
+:root {
+  --grey1: #9d9d9d;
+  --grey2: #e8e8e8;
+  --grey3: #4a4444;
+}
+@import url("https://fonts.googleapis.com/css2?family=Iceland&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Fira+Mono:wght@500&display=swap");
+
+.container {
+  height: 100vh;
+  margin: 0 auto;
+  display: grid;
+  place-items: center;
+  vertical-align: middle;
+  background: linear-gradient(
+      180deg,
+      rgba(236, 233, 255, 0.15) 0%,
+      rgba(134, 109, 86, 0.15) 100%
+    ),
+    radial-gradient(50% 50% at 50% 50%, #b7b7b7 0%, rgba(242, 242, 242, 0) 100%);
+  .responsive-calcuator {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    width: clamp(140px, 40vw, 1000px);
+    //height: 60%;
+    margin: 0 auto;
+    padding: 3.5vw;
+    border-radius: 8px;
+    box-shadow: 0 0 0 4px var(--grey1), 0px 4px 4px rgba(0, 0, 0, 0.4);
+    background: linear-gradient(
+      0deg,
+      var(--grey1) 0%,
+      var(--grey1) 5%,
+      var(--grey2) 15%
+    );
+    font-family: "Iceland";
+  }
+}
+
+.top {
+  display: flex;
+  justify-content: space-between;
+
+  .solar-cell {
+    flex-grow: 0.6;
+    content: "";
+    min-width: 80px;
+    height: 20px;
+    border-radius: 4px;
+    background-color: #706864;
+    display: flex;
+    justify-content: space-between;
+    z-index: 2;
+    position: relative;
+    overflow: hidden;
+
+    .cell {
+      content: "";
+      width: 12.5%;
+      background-color: #3d3d3d;
+      opacity: 0.3;
+      z-index: 10;
+    }
+    &:after {
+      content: "";
+      position: absolute;
+      z-index: 15;
+      box-shadow: inset 0px 2px #474747;
+      width: 100%;
+      height: 100%;
+    }
+  }
+  .logo {
+    font-size: clamp(0.5em, 4vw, 1.4em);
+    line-height: 0.9em;
+    opacity: 0.45;
+    color: black;
+    word-spacing: -3px;
+    text-align: right;
+    line-height: 10px;
+  }
+}
+
+.screen {
+  font-family: "Fira Mono";
+  line-height: 16px;
+  background: #b4b4b4;
+  color: rgba(0, 0, 0, 0.5);
+  padding: 0.125em 0;
+  margin: 1.5rem 0;
+  border-radius: 4px;
+  position: relative;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.25);
+
+  .line {
+    min-height: 16px;
+    width: auto;
+    display: block;
+    outline-style: none;
+    padding: 0.125em 0.25em;
+    margin: 0.35em 0;
+    background-color: rgba(0, 0, 0, 0.1);
+  }
+}
+
+.bottom {
+  display: grid;
+  grid-gap: 2.5vw;
+  grid-template-columns: repeat(4, 1fr);
+  padding-bottom: 2em;
+
+  button {
+    span {
+      //text inner fade
+      background: -webkit-linear-gradient(#eee, rgb(200, 200, 200, 0.8));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    font-family: "Iceland";
+    font-size: clamp(0.5em, 4vw, 1em);
+    box-shadow: 0 0 0 2px rgba(143, 143, 143, 0.5);
+    filter: drop-shadow(0px -3px 6px rgba(70, 70, 70, 0.25));
+    letter-spacing: 0.08em;
+    border: none;
+    padding: 0.085em 0.275em;
+    border-radius: 4px;
+    cursor: pointer;
+    color: white;
+    background: linear-gradient(
+        180deg,
+        rgba(255, 255, 255, 0.15) 0%,
+        rgba(255, 255, 255, 0) 125%
+      ),
+      #4a4444;
+    transition: 100ms all;
+    &:active {
+      filter: drop-shadow(0px -1px 2px rgba(70, 70, 70, 0.1));
+      box-shadow: 0 0 0 2px rgba(53, 53, 53, 0.8);
+    }
+    &:hover {
+      box-shadow: 0 0 0 2px rgba(39, 39, 39, 0.4);
+    }
+    &.grey {
+      background: linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 0.15) 0%,
+          rgba(255, 255, 255, 0) 125%
+        ),
+        #716e6e;
+    }
+    &.orange {
+      background: linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 0.2) 0%,
+          rgba(255, 255, 255, 0) 125%
+        ),
+        #e06a33;
+    }
+  }
+  .span2h {
+    grid-column: 2 / span 2;
+  }
+  .span2v {
+    grid-column: 4;
+    grid-row: 6 / 4;
+  }
+}
