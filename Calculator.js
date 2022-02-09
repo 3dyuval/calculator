@@ -26,7 +26,7 @@ export default class Calculator {
     this.operation = operation
     this.appendNumber(this.operation)
     this.previousLine = this.currentLine
-    this.currentLine = this.operation
+    this.currentLine = ""
   }
 
   compute() {
@@ -51,6 +51,7 @@ export default class Calculator {
         return
     }
     this.previousLine = ""
+    console.log(result)
     this.operation = undefined
     this.currentLine = result.toString()
   }
